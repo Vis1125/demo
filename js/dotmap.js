@@ -36,6 +36,9 @@ var dots;
 var tentativa=[];
 //-- FUNÇÃO QUE DESENHA E CONTROLA OS PONTOS NO MAPA --
 function Vis03TutorialFunction(dataset){
+  if (opcoes.length==0) {
+    opcoes=["Recife","Caruaru"];
+  }
   if (dots.length==0) {
     InicioDot();
   }

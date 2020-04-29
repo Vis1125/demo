@@ -5,7 +5,7 @@ d3.json("./data/perguntas.json",function(error,data){
 	novodataset=data;
 });
 window.onload=function(){
-	opcoes=[];
+	opcoes=["Recife","Caruaru"];
     Vis02TutorialFunction(dataset,true);
 } 
 $(document).ready(function () {
@@ -292,9 +292,7 @@ $(document).ready(function () {
 	});
 	$("a[href='#DM']").on('shown.bs.tab', function(e) {
 		mapVis03.invalidateSize();
-		console.log("1");
 		  	if (dots.length==0) {
-		  		console.log("2");
 		    	InicioDot();
 		  	}
 	});
