@@ -36,9 +36,6 @@ var dots;
 var tentativa=[];
 //-- FUNÇÃO QUE DESENHA E CONTROLA OS PONTOS NO MAPA --
 function Vis03TutorialFunction(dataset){
-  if (dots.length==0) {
-    InicioDot();
-  }
   if(layerTuto3!= null){
     layerTuto3.clearLayers();
     pontos.clearLayers();

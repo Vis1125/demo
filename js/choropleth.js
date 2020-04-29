@@ -1,17 +1,4 @@
-var filterbymouth,filterbytri,alpha=0,left=80,right=400,leftTaxi=22000,rightTaxi=36000,database,interOn,mesSelecionado,anoSelecionado,diaSelecionado,trimestreSelecionado,opcoes=[],GeoLayer,LayerRange,layerTuto1,layerTuto2,layerTuto3,layerTuto4,LayerTaxi,dataset,max,featurename,selecionados=[],selecionadosC=[],selecionadosT=[],medias=[],hops=true;
-//var map = L.map('vis6').setView([-8.305448,-37.822426], 8);
-var mapRange = L.map('vis2',{ zoomControl: false }).setView([-8.305448,-37.822426], 8);
-//var mapVis01 = L.map('vis01').setView([-8.305448,-37.822426], 8);
-var mapVis02 = L.map('vis02',{ zoomControl: false }).setView([-8.305448,-37.822426], 8);
-var mapVistaxi = L.map('vistaxi',{ zoomControl: false }).setView([40.752866,-73.986023], 13);
-var gradesR=[0,0.12,0.24,0.36,0.48,0.60,0.72,0.84,1];
 var databasetaxi,datasettaxi;
-mapRange.doubleClickZoom.disable();
-mapRange.scrollWheelZoom.disable();
-mapVis02.doubleClickZoom.disable();
-mapVis02.scrollWheelZoom.disable();
-mapVistaxi.scrollWheelZoom.disable();
-mapVistaxi.doubleClickZoom.disable();
 // INICIA A BASE DE DADOS E O DATASET DE POLIGONOS.
 d3.json("./data/pe.json",function(error,dados){
   dataset=dados;
@@ -19,6 +6,21 @@ d3.json("./data/pe.json",function(error,dados){
 d3.json("./data/dados.json",function(error,data){
   database=data;
 });
+var filterbymouth,filterbytri,alpha=0,left=80,right=400,leftTaxi=22000,rightTaxi=36000,database,interOn,mesSelecionado,anoSelecionado,diaSelecionado,trimestreSelecionado,opcoes=[],GeoLayer,LayerRange,layerTuto1,layerTuto2,layerTuto3,layerTuto4,LayerTaxi,dataset,max,featurename,selecionados=[],selecionadosC=[],selecionadosT=[],medias=[],hops=true;
+//var map = L.map('vis6').setView([-8.305448,-37.822426], 8);
+var mapRange = L.map('vis2',{ zoomControl: false }).setView([-8.305448,-37.822426], 8);
+//var mapVis01 = L.map('vis01').setView([-8.305448,-37.822426], 8);
+var mapVis02 = L.map('vis02',{ zoomControl: false }).setView([-8.305448,-37.822426], 8);
+var mapVistaxi = L.map('vistaxi',{ zoomControl: false }).setView([40.752866,-73.986023], 13);
+var gradesR=[0,0.12,0.24,0.36,0.48,0.60,0.72,0.84,1];
+
+mapRange.doubleClickZoom.disable();
+mapRange.scrollWheelZoom.disable();
+mapVis02.doubleClickZoom.disable();
+mapVis02.scrollWheelZoom.disable();
+mapVistaxi.scrollWheelZoom.disable();
+mapVistaxi.doubleClickZoom.disable();
+
 d3.json("./data/pickup.json",function(error,data){
   databasetaxi=data;
   d3.json("./data/midtown.geojson",function(error,dados){

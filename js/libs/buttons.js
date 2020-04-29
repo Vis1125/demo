@@ -153,7 +153,8 @@ $(document).ready(function () {
 	//$('#pills-tab >li')[1].classList.add('disabled');
 	// BLOCO PARA INICIAR OS STEPS DE CADA ETAPA DO SISTEMA
 	stepper0 = new Stepper($('.bs-stepper')[0]);
-	stepper2 = new Stepper($('.bs-stepper')[1]);
+	stepper1 = new Stepper($('.bs-stepper')[1]);
+	stepper2 = new Stepper($('.bs-stepper')[2]);
 	//OCULTA A TELA INICIAL E EXIBE O TUTORIAL
 	$('#iniciar').click(function(){
 		if($('input[name ="inlineRadioOptions"]:checked').val()==undefined || $('input[name ="inlineRadioOptions"]:checked').val()=='Não'){
@@ -264,11 +265,22 @@ $(document).ready(function () {
 	});
 	// PARA A ETAPA DE TUTORIAL CORRIGE O PROBLEMA DO TAMANHO DO MAPA POR CONTA DAS ANIMAÇÕES E INICIA OS MAPAS.
 	$('.bs-stepper')[0].addEventListener('shown.bs-stepper', function (event) {
-		if(event.detail.indexStep==5){
+		//mapRange.invalidateSize();
+		if(event.detail.indexStep>2){
 			mapVis02.invalidateSize();
-			opcoes=[];
+		//	opcoes=[];
 		  	//opcoes=['Recife','Caruaru'];
-    		Vis02TutorialFunction(dataset,true);
+    	//	Vis02TutorialFunction(dataset,true);
+    	}
+	});
+	$('.bs-stepper')[1].addEventListener('shown.bs-stepper', function (event) {
+		if(event.detail.indexStep>1){
+			mapVis04.invalidateSize();
+    	}
+	});
+	$('.bs-stepper')[2].addEventListener('shown.bs-stepper', function (event) {
+		if(event.detail.indexStep>1){
+			mapVis03.invalidateSize();
     	}
 	});
 	// PARA A ETAPA DE PERGUNTAS CORRIGE O PROBLEMA DO TAMANHO DO MAPA POR CONTA DAS ANIMAÇÕES E INICIA OS MAPAS QUANDO UMA TAB MUDA.
@@ -304,8 +316,19 @@ $(document).ready(function () {
 			inicioTaxi(datasettaxi);
 		}
 	});
-	// VALIDA AS RESPOSTAS DOS FORMS, DESTACA AS ÁREAS PERGUNTADAS E SETA OS VALORES DE TEMPO E CLICK PARA CADA PERGUNTA.
 	$(".btn-next-form").click(function() {
+		stepper0.next();
+	});
+
+	$(".btn-next-form2").click(function() {
+		stepper1.next();
+	});
+	$(".btn-next-form3").click(function() {
+		stepper2.next();
+	});
+
+	// VALIDA AS RESPOSTAS DOS FORMS, DESTACA AS ÁREAS PERGUNTADAS E SETA OS VALORES DE TEMPO E CLICK PARA CADA PERGUNTA.
+	/*$(".btn-next-form").click(function() {
 		if($(this).hasClass('tutorial')==false){
 			var ent= $(this).parent().find('.form-group > div > div> div >').siblings()[0].name;
 			var entid= $(this).parent().find('.form-group > div > div> div >').siblings()[0].id;
@@ -398,12 +421,18 @@ $(document).ready(function () {
 					}
 				}
 			}else{
-				stepper0.next();
+
 			}
 		}
-	});
+	});*/
 	$('.btn-previous-form').click(function(){
 		stepper0.previous();
+	});
+	$('.btn-previous-form2').click(function(){
+		stepper1.previous();
+	});
+	$('.btn-previous-form3').click(function(){
+		stepper2.previous();
 	});
 	$("#btn1,#2btn1,#3btn1,#4btn1,#btuto10").css('float','right');
 	// PARA CADA BOTÃO DA ÚLTIMA PERGUNTA DE CADA TÉCNICA PREPARA A PRÓXIMA TAB PARA SER EXIBIDA.
