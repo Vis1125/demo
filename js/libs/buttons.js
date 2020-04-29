@@ -292,7 +292,9 @@ $(document).ready(function () {
 	});
 	$("a[href='#DM']").on('shown.bs.tab', function(e) {
 		mapVis03.invalidateSize();
+		console.log("1");
 		  	if (dots.length==0) {
+		  		console.log("2");
 		    	InicioDot();
 		  	}
 	});
