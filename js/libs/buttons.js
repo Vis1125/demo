@@ -292,6 +292,9 @@ $(document).ready(function () {
 	});
 	$("a[href='#DM']").on('shown.bs.tab', function(e) {
 		mapVis03.invalidateSize();
+		  	if (dots.length==0) {
+		    	InicioDot();
+		  	}
 	});
 
     $("a[href='#pills-profile']").on('shown.bs.tab', function(e) {
